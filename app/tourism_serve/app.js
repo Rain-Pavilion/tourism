@@ -8,7 +8,6 @@ var session = require('express-session');
 var cors = require('cors');
 var app = express();
 
-
 app.use(session({
         secret: '这是一个穷游的网站',
         resave: true,
