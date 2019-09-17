@@ -27,38 +27,57 @@
                     ></van-field>
                 </van-cell-group>
             </div>
-            <van-button type="primary" size="large" class="submit">下一步</van-button>
+            <van-button @click="visibility=!visibility" type="primary" size="large" class="submit">下一步</van-button>
             <div class="options">
-                <span style="color:rgba(0,0,0,.6);" @click="handle">账号密码登陆</span>
+                <span style="color:rgba(0,0,0,.6);" @click="handle" v-if="change">短信登陆</span>
+                <span style="color:rgba(0,0,0,.6);" @click="handle" v-else>账号密码登陆</span>
                 <span style="color:rgba(0,0,0,.6);" @click="handleHelp">需要帮助？</span>
             </div>
-            <van-popup
+
+            <van-action-sheet
                     v-model="show"
-                    closeable
-                    position="bottom"
-                    :style="{ height: '30%' }"
-            >
-                <van-cell-group id="select">
-                    <van-cell value="常见问题"/>
-                    <van-cell value="留言反馈"/>
-                    <van-cell value="取消"/>
-                </van-cell-group>
-            </van-popup>
+                    :actions="actions"
+                    @select="onSelect"
+            ></van-action-sheet>
+            <myoverlay v-model="visibility">
+                <div class="app-live">
+                    <slide-verify :l="42"
+                                  :r="10"
+                                  :w="312"
+                                  :h="155"
+                                  @success="onSuccess"
+                                  @fail="onFail"
+                                  @refresh="onRefresh"
+                                  slider-text="向右滑动"
+                    ></slide-verify>
+                    <div class="coutdown" v-text="msg">
+                    </div>
+                </div>
+            </myoverlay>
         </div>
     </div>
 </template>
 
 <script>
     import MyHeader from "../component/common/MyHeader";
+    import Myoverlay from "../component/common/Myoverlay";
 
     export default {
         name: "Login",
-        components: {MyHeader},
+        components: {Myoverlay, MyHeader},
         data() {
             return {
                 phone: '',
                 change: true,
                 show: false,
+                visibility: false,
+                actions: [
+                    {name: '常见问题'},
+                    {name: '留言反馈'},
+                    {name: '退出'},
+                ],
+                msg:''
+
             }
         },
         methods: {
@@ -70,9 +89,24 @@
             },
             handleHelp() {
                 this.show = !this.show;
-
+            },
+            onSelect(item) {
+                this.show = false;
+            },
+            onSuccess() {
+                this.msg='匹配成功,5s后跳转';
+                setTimeout(() => {
+                    this.visibility = false;
+                    this.msg=''
+                }, 5000)
+            },
+            onFail() {
+                this.msg='匹配错误,请重新匹配';
+            },
+            onRefresh() {
+                this.msg='';
             }
-        },
+        }
     }
 </script>
 
@@ -138,20 +172,16 @@
         padding-left: 0;
         padding-right: 0;
     }
-    #select .van-cell{
-        border-bottom: 1px solid #eeeeee;
-    }
 
-    #select .van-cell .van-cell__value{
-        text-align: center;
-        font-size:17px;
-        height: 40px;
-        line-height: 40px;
-    }
-    #select  .van-cell:first-child span{
-        color: rgb(21, 219, 145);
-    }
-    #select .van-cell:nth-child(2) span{
-        color: rgb(21,219,145);
+    .app-live .coutdown {
+        width: 312px;
+        height: 21px;
+        background: #02db94;
+        position: relative;
+        left: 0;
+        top: -58px;
+        line-height:21px;
+        color:#ffffff;
+        text-align:center;
     }
 </style>
