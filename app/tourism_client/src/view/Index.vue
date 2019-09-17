@@ -7,18 +7,19 @@
 </template>
 
 <script>
+    import Mytitle from "../component/common/Mytitle";
     export default {
         data() {
             return {}
         },
         methods: {},
         name: "Index",
-        components: {}
+        components: {Mytitle}
     }
 </script>
 
 <style scoped>
-    .move-enter-active, .move-leave-active {
+    .move-enter-active,.move-leave-active{
         transition: all .5s;
     }
     .move-leave, .move-leave-to {

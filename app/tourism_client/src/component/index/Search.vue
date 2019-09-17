@@ -1,7 +1,7 @@
 <template>
     <div class="app">
         <van-search
-                v-model="value"
+                v-model="keyword"
                 placeholder="请输入搜索关键词"
                 show-action
                 @cancel="onCancel"
@@ -17,19 +17,26 @@
             <div class="content">
             </div>
         </div>
+        <hot-tag></hot-tag>
     </div>
 </template>
 
 <script>
     import MyHeader from "../common/MyHeader";
     import NavBar from "./NavBar";
+    import HotTag from "./hotTag";
 
     export default {
         name: "Search",
-        components: {NavBar, MyHeader},
+        components: {HotTag, NavBar, MyHeader},
+        data() {
+            return {
+                keyword:'',
+            }
+        },
         methods: {
             onCancel() {
-                console.log(this.$router.push('/'))
+                this.$router.push('/')
             }
         },
     }

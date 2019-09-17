@@ -16,12 +16,20 @@
             <img src="/img/bg/guangao.jpg" alt="">
         </a>
         <nav-bar></nav-bar>
+        <div class="">
+            <div class="the-world-warp">
+                 <mytitle title="主打折扣"></mytitle>
+                 <ul class="index-choiceProduct-list">
+                 </ul>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
     import NavBar from "./NavBar";
     import MyHeader from "../common/MyHeader";
+    import Mytitle from "../common/Mytitle";
 
     export default {
         data() {
@@ -34,7 +42,7 @@
             }
         },
         name: "Show",
-        components: {MyHeader, NavBar}
+        components: {Mytitle, MyHeader, NavBar}
     }
 </script>
 
@@ -62,12 +70,16 @@
         flex: 1;
         border-radius: 15px;
         line-height: 30px;
-        font-size: 12px;
+        font-size: 14px;
+        color: #444444;
     }
      .app .big_content{
          display: block;
     }
     .app .big_content img{
         width: 100%;
+    }
+     .app .index-choiceProduct-list{
+        padding:0 15px;
     }
 </style>
