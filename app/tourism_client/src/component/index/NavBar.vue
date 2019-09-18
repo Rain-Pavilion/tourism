@@ -66,12 +66,12 @@
                 </a>
             </li>
             <li class="nav-bar-item">
-                <a href="">
+                <router-link to="/appointment">
                     <i class="item-icon">
                         <img src="/img/icon/ia_100000046.jpg" alt="">
                     </i>
-                    <span>行程助手</span>
-                </a>
+                    <span>约伴</span>
+                </router-link>
             </li>
             <li class="nav-bar-item">
                 <a href="">

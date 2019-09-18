@@ -4,7 +4,9 @@
       <img src="img/appointment/banner.jpg" />
     </div>
     <header>
-      <img class="logo" src="img/appointment/logo.png" alt />
+      <router-link to="/">
+        <img class="logo" src="img/appointment/logo.png" alt />
+      </router-link>
       <img class="biu" src="img/appointment/biu.jpg" alt />
       <button>重置</button>
     </header>
