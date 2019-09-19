@@ -16,13 +16,13 @@
             <img src="/img/bg/guangao.jpg" alt="">
         </a>
         <nav-bar></nav-bar>
-        <div class="">
-            <div class="the-world-warp">
-                 <mytitle title="主打折扣"></mytitle>
-                 <ul class="index-choiceProduct-list">
-                 </ul>
-            </div>
+        <div class="the-world-warp">
+            <mytitle title="精选攻略"
+                     warning="出境游安全提示"
+            ></mytitle>
         </div>
+        <lv-info>
+        </lv-info>
     </div>
 </template>
 
@@ -30,19 +30,20 @@
     import NavBar from "./NavBar";
     import MyHeader from "../common/MyHeader";
     import Mytitle from "../common/Mytitle";
+    import LvInfo from "./LvInfo";
+    import LvInfoItme from "./LvInfoItme";
 
     export default {
         data() {
-            return {
-            }
+            return {}
         },
         methods: {
-            search(){
-               this.$router.push('/search')
+            search() {
+                this.$router.push('/search')
             }
         },
         name: "Show",
-        components: {Mytitle, MyHeader, NavBar}
+        components: {LvInfoItme, LvInfo, Mytitle, MyHeader, NavBar}
     }
 </script>
 
@@ -73,13 +74,16 @@
         font-size: 14px;
         color: #444444;
     }
-     .app .big_content{
-         display: block;
+
+    .app .big_content {
+        display: block;
     }
-    .app .big_content img{
+
+    .app .big_content img {
         width: 100%;
     }
-     .app .index-choiceProduct-list{
-        padding:0 15px;
+
+    .app .index-choiceProduct-list {
+        padding: 0 15px;
     }
 </style>

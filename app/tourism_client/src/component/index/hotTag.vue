@@ -6,18 +6,17 @@
             </h5>
             <span class="is-active">活动中</span>
         </div>
-        <van-row>
-            <van-col span="8">
+        <div style="display: flex;justify-content: space-between">
+            <div>
                 <img src="/img/card/card.png" alt="">
-            </van-col>
-            <van-col span="8">
+            </div>
+            <div>
                 <img src="/img/card/card2.jpg" alt="">
-            </van-col>
-            <van-col span="8">
+            </div>
+            <div>
                 <img src="/img/card/card3.png" alt="">
-            </van-col>
-        </van-row>
-
+            </div>
+        </div>
     </div>
 </template>
 
@@ -29,13 +28,13 @@
                 type: String,
                 default: '我的旅行源动力'
             },
-            isActive:{
-                type:Boolean,
-                default:false,
+            isActive: {
+                type: Boolean,
+                default: false,
             },
-            imglist:{
-                type:Array,
-                default:[],
+            imglist: {
+                type: Array,
+                default: [],
             }
         },
     }
@@ -53,14 +52,14 @@
         line-height: 0.5rem;
         height: 0.5rem;
         vertical-align: middle;
-        font-size:0.25rem;
+        font-size: 0.25rem;
         padding: 0.25rem;
         border-radius: 3rem;
         background-color: #f9ea2e;
         overflow: hidden;
         text-align: center;
         color: #444444;
-        margin-left:5px;
+        margin-left: 5px;
     }
 
     .tag-title {

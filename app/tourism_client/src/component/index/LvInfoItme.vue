@@ -1,5 +1,6 @@
 <template>
-    $END$
+    <div>
+    </div>
 </template>
 
 <script>
@@ -9,5 +10,8 @@
 </script>
 
 <style scoped>
-
+     img{
+         height: auto;
+         max-width: 100%;
+     }
 </style>

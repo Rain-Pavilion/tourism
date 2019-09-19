@@ -33,7 +33,6 @@
                 <span style="color:rgba(0,0,0,.6);" @click="handle" v-else>账号密码登陆</span>
                 <span style="color:rgba(0,0,0,.6);" @click="handleHelp">需要帮助？</span>
             </div>
-
             <van-action-sheet
                     v-model="show"
                     :actions="actions"
