@@ -4,6 +4,7 @@ import Index from "./view/Index";
 import Show from "./component/index/Show";
 import Search from "./component/index/Search";
 import Login from "./view/Login";
+import Appointment from "./view/appointment";
 
 
 Vue.use(Router);
@@ -25,6 +26,9 @@ export default new Router({
         },
         {
             path:'/login',component:Login,
+        },
+        {
+            path:'/appointment',component:Appointment,
         }
     ]
 })

@@ -48,6 +48,7 @@
 </script>
 
 <style scoped>
+
     .app .header {
         padding: 7px 15px;
     }
