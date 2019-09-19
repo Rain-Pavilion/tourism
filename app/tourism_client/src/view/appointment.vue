@@ -15,24 +15,22 @@
                 <span>地点</span>
                 <img  src="img/appointment/3j.png" alt="">
             </div>
-            <div @click="handleClick(index)" v-for="(se,index) in section">
-                <span v-text="se.place" :class="{hover:section[index].currentIndex!==0
-
-                }"
+            <div @click="handleClick(index)" v-for="(se,index) in section" :key="index">
+                <span v-text="se.place" :class="{hover:section[index].currentIndex!==0}"
                 ></span>
                 <img :class="{ratege:se.show}" src="img/appointment/3j.png" alt="">
             </div>
         </section>
-        <div class="down" :class="{show:se.show}" v-for="(se,index) in section">
+        <div class="down" :class="{show:se.show}" v-for="(se,index) in section" :key="index">
             <ul @click="handleHover(index,$event)">
-                <li v-for="(it,index) in se.list" :data-index="index"
+                <li v-for="(it,index) in se.list" :key="index" :data-index="index"
                     :class="{hover:(index===se.currentIndex)}"
                 >{{it}}
                 </li>
             </ul>
         </div>
         <div>
-            <AppointmentCard v-for="i in 10"></AppointmentCard>
+            <AppointmentCard v-for="i in 10" :key="i"></AppointmentCard>
         </div>
     </div>
 </template>
@@ -44,20 +42,21 @@
             return {
                 show: true,
                 section: [
-                    {
-                        place: '时间',
-                        list: ['全部','本周末','一周内','一个月内', '十月', '十一月','十二月'],
+                     {
+                        place: '主题',
+                        list: ['全部','一起去旅行','陪我看电影','走！去探店','过节需要仪式感','约个饭吧','看展才是正经事','其它活动','约你去看剧'],
                         show: false,
-                        currentIndex: 3,
-                        defaultValue:'时间'
+                        currentIndex: 0,
+                        defaultValue:'主题'
                     },
                     {
-                        place: '主题',
-                        list: ['全部','一起去旅行','陪我看电影','走！去探店','过节需要仪式感','约个饭吧'],
+                        place: '时间',
+                        list: ['全部','本周末','一周内','一个月内', '十月', '十一月','十二月','十二月之后'],
                         show: false,
-                        currentIndex: 1,
-                        defaultValue:'主题'
+                        currentIndex: 0,
+                        defaultValue:'时间'
                     }
+                    
 
                 ],
             }
@@ -138,18 +137,19 @@
     section > div img {
         display: inline-block;
         height: 0.8rem;
+        vertical-align: 1.2rem;
         margin-left: 0.25rem;
         margin-top: 0rem;
         width: 1rem;
         transition: 0.33s all;
     }
-
-    section > div img {
-        display: inline-block;
-        height: 0.8rem;
-        margin-left: 0.25rem;
-        margin-top: 0rem;
-        width: 1rem;
+    section > div span {
+      width: 6rem;
+      display:inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
 
     .down {
