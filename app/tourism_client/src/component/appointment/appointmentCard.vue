@@ -1,4 +1,5 @@
 <template>
+ <router-link to="/appointmentBody">
   <div :style="`background-image: url(${this.bgurl[Math.floor(Math.random()*8)]} )`" class="card">
     <table></table>
     <div class="title">
@@ -12,6 +13,7 @@
       <h6>今天七月份刚去了美西，计划十一去美东，华盛顿，纽约，波士顿等，一个爱健身旅游的小今天七月份刚去了美西，计划十一去美东，华盛顿，纽约，波士顿等，一个爱健身旅游的小</h6>
     </div>
   </div>
+  </router-link>
 </template>
 <script>
 export default {

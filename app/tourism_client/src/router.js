@@ -5,6 +5,7 @@ import Show from "./component/index/Show";
 import Search from "./component/index/Search";
 import Login from "./view/Login";
 import Appointment from "./view/appointment";
+import AppointmentBody from "./view/appointmentBody";
 
 
 Vue.use(Router);
@@ -29,6 +30,9 @@ export default new Router({
         },
         {
             path:'/appointment',component:Appointment,
+        },
+        {
+            path:'/appointmentBody',component:AppointmentBody,
         }
     ]
 })
