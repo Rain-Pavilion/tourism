@@ -34,6 +34,8 @@
         <div>
             <AppointmentCard v-for="i in 10"></AppointmentCard>
         </div>
+        <div v-show="true">
+        </div>
     </div>
 </template>
 <script>
