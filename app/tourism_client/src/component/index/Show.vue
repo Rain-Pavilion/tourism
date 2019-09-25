@@ -22,7 +22,21 @@
             ></mytitle>
         </div>
         <lv-info>
+            <div class="container-water-fall">
+                <waterfall :line-gap="150" :watch="wallImgList">
+                    <!-- each component is wrapped by a waterfall slot -->
+                    <waterfall-slot
+                            :width="item.width"
+                            :height="item.height"
+                            :order="index"
+                            v-for="(item, index) in wallImgList"
+                    >
+                        <img :src="item.src" alt="" ref="imgInfo">
+                    </waterfall-slot>
+                </waterfall>
+            </div>
         </lv-info>
+        <h1>{{width}}</h1>
     </div>
 </template>
 
@@ -32,18 +46,45 @@
     import Mytitle from "../common/Mytitle";
     import LvInfo from "./LvInfo";
     import LvInfoItme from "./LvInfoItme";
+    import Waterfall from 'vue-waterfall/lib/waterfall'
+    import WaterfallSlot from 'vue-waterfall/lib/waterfall-slot'
 
     export default {
         data() {
-            return {}
+            return {
+
+                wallImgList:
+                    [
+                        {src: '/img/wall/wallPic0.jpg'},
+                        {src: '/img/wall/wallPic1.jpg'},
+                        {src: '/img/wall/wallPic10.jpg'},
+                        {src: '/img/wall/wallPic11.jpg'},
+                        {src: '/img/wall/wallPic12.jpg'},
+                        {src: '/img/wall/wallPic13.jpg'},
+                        {src: '/img/wall/wallPic14.jpg'},
+                        {src: '/img/wall/wallPic15.jpg'},
+                        {src: '/img/wall/wallPic2.jpg'},
+                        {src: '/img/wall/wallPic3.jpg'},
+                        {scr: '/img/wall/wallPic4.jpg'},
+                        {src: '/img/wall/wallPic5.jpg'},
+                        {src: '/img/wall/wallPic6.jpg'},
+                        {src: '/img/wall/wallPic7.jpg'},
+                        {src: '/img/wall/wallPic9.jpg'}
+                    ]
+            }
         },
         methods: {
             search() {
                 this.$router.push('/search')
-            }
+            },
         },
         name: "Show",
-        components: {LvInfoItme, LvInfo, Mytitle, MyHeader, NavBar}
+        components: {
+            LvInfoItme, LvInfo, Mytitle, MyHeader, NavBar, Waterfall,
+            WaterfallSlot
+        },
+        computed:{
+        }
     }
 </script>
 
