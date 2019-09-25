@@ -58,12 +58,12 @@
                 </a>
             </li>
             <li class="nav-bar-item">
-                <a href="">
+                <router-link to="/shop">
                     <i class="item-icon">
                         <img src="/img/icon/ia_100000045.jpg" alt="">
                     </i>
-                    <span>行程助手</span>
-                </a>
+                    <span>商城</span>
+                </router-link>
             </li>
             <li class="nav-bar-item">
                 <router-link to="/appointment">
@@ -121,7 +121,7 @@
         margin-top: -7px;
         text-align: center;
         color: rgba(0, 0, 0, .8);
-        font-weight: 500;
+        font-weight: 800;
         line-height: 24px;
     }
 

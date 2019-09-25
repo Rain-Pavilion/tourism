@@ -6,6 +6,10 @@ import Search from "./component/index/Search";
 import Login from "./view/Login";
 import Appointment from "./view/appointment";
 import AppointmentBody from "./view/appointmentBody";
+import Shop from "./view/Shop";
+import ShopIndex from "./component/shop/ShopIndex";
+import ShopUser from "./component/shop/ShopUser";
+import ShopLocation from "./component/shop/ShopLocation";
 
 
 Vue.use(Router);
@@ -17,22 +21,39 @@ export default new Router({
             children: [
                 {
                     path: 'search',
-                    component:Search,
+                    component: Search,
                 },
                 {
-                    path:'',
-                    component:Show,
+                    path: '',
+                    component: Show,
                 }
             ]
         },
         {
-            path:'/login',component:Login,
+            path: '/login', component: Login,
         },
         {
-            path:'/appointment',component:Appointment,
+            path: '/appointment', component: Appointment,
         },
         {
-            path:'/appointmentBody',component:AppointmentBody,
+            path: '/appointmentBody', component: AppointmentBody,
+        },
+        {
+            path: '/shop', component: Shop,
+            children: [
+                {
+                    path: 'index',
+                    component: ShopIndex,
+                },
+                {
+                    path:'user',
+                    component: ShopUser,
+                },
+                {
+                    path:'location',
+                    component: ShopLocation,
+                }
+            ]
         }
     ]
 })

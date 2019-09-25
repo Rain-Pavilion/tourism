@@ -1,24 +1,21 @@
 /*css reset*/
 /**/
-a{
+a {
     text-decoration: none;
     color: #000000;
 }
+
 body {
-  font-family:'仿宋';
+    font-family: '仿宋';
+    font-weight: 800;
 }
-
-
-
-
-
 
 
 /*common css*/
 
 
-.the-world-warp{
-    margin-top:33px;
+.the-world-warp {
+    margin-top: 33px;
 }
 
 
