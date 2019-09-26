@@ -10,16 +10,16 @@ import Shop from "./view/Shop";
 import ShopIndex from "./component/shop/ShopIndex";
 import ShopUser from "./component/shop/ShopUser";
 import ShopLocation from "./component/shop/ShopLocation";
+import Chat from './component/appointment/chat';
 
 
 Vue.use(Router);
 
 export default new Router({
-    routes: [
-        {
-            path: '/', component: Index,
-            children: [
-                {
+    routes: [{
+            path: '/',
+            component: Index,
+            children: [{
                     path: 'search',
                     component: Search,
                 },
@@ -30,30 +30,37 @@ export default new Router({
             ]
         },
         {
-            path: '/login', component: Login,
+            path: '/login',
+            component: Login,
         },
         {
-            path: '/appointment', component: Appointment,
+            path: '/appointment',
+            component: Appointment,
         },
         {
-            path: '/appointmentBody', component: AppointmentBody,
+            path: '/appointmentBody',
+            component: AppointmentBody,
         },
         {
-            path: '/shop', component: Shop,
-            children: [
-                {
+            path: '/shop',
+            component: Shop,
+            children: [{
                     path: 'index',
                     component: ShopIndex,
                 },
                 {
-                    path:'user',
+                    path: 'user',
                     component: ShopUser,
                 },
                 {
-                    path:'location',
+                    path: 'location',
                     component: ShopLocation,
                 }
             ]
+        },
+        {
+            path: '/chat',
+            component: Chat,
         }
     ]
 })

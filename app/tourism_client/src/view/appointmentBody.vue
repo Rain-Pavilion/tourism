@@ -9,7 +9,7 @@
       <button>发起</button>
     </header>
     <appointmentList class="list"></appointmentList>
-    <van-swipe class="imglist" @change="onChange">
+    <van-swipe class="imglist">
       <van-swipe-item><section>
       <h1>一起去旅行</h1>
       <h6>啊速度发撒低级发飞机撒赖扩大解放蛮大附件；拉萨的法律卡萨丁就弗兰克撒娇地方卢卡斯看到了几分昂克赛拉的法兰克收到个发射点风格</h6>
@@ -33,14 +33,37 @@
         <img src="img/appointment/right.png" alt="">
       </div>
     </div>
-    
+    <footer>
+      <div>
+      <van-icon name="clock" /> <span>日期</span> <span>9月26日 ~ 2019年10月8日</span>
+      </div>
+      <div class="place">
+      <van-icon name="location" /> <span>地点</span> <span>奥多兰迪士尼世界·奥多兰环球影城·奥多兰</span>
+      </div>
+      <div class="chat">
+        <span><span class="num">18</span>人感兴趣</span>
+        <router-link to="/Chat">
+          <van-button icon="chat"  round color="linear-gradient(to right, #4bb0ff, #6149f6)">和他聊聊</van-button>
+        </router-link>
+      </div>
+    </footer>
   </div>
 </template>
 <script>
 import AppointmentList from "../component/appointment/appointmentList";
 export default {
   data() {
-    return {};
+    return {
+      height:800+"px"
+    };
+  },
+  methods:{
+    getScreenHeight(){
+      this.height = window.screen.availHeight+"px";
+    }
+  },
+  created(){
+    getScreenHeight();
   },
   components: { AppointmentList }
 };
@@ -131,5 +154,36 @@ export default {
     position: absolute;
     right: 1rem;
     top: 1.8rem;
+  }
+  footer {
+    padding-left: 1rem;
+  }
+  footer>div>span {
+    margin-left: 1rem;
+    font-size: .8rem;
+  }
+  footer .place {
+    margin-top: .5rem;
+  }
+  .place span:last-child {
+    display: inline-block;
+    width: 70%;
+  }
+  .chat {
+    margin-top: .5rem;
+  }
+  .chat button {
+    width: 12rem;
+    height: 2rem;
+    margin-left: 1rem;
+  }
+  .chat span {
+    margin: 0;
+  }
+  .chat .num {
+    font-size: 1.6rem;
+  }
+  .van-button__icon+.van-button__text,.van-icon, .van-icon::before {
+    margin-top: -5px;
   }
 </style>
